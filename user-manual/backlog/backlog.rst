@@ -47,7 +47,7 @@ Searching for transfers and files
       :alt: Archivematica backlog tab showing all transfers in the backlog
 
 #. To change the columns that are visible in the tabular list of backlogged transfers,
-   click on the Select columns icon at the bottom of the table.
+   click on the **Select columns** icon at the bottom of the table.
 
 #. This will present a list of the columns that are available for viewing in the
    table. The blue row indicates that a column is currently visible. A white row
