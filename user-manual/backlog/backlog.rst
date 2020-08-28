@@ -61,7 +61,7 @@ Searching for transfers and files
 #. Click on a blue or white row to toggle this value for each column. In the
    example below, all the available columns are selected. Note that your column
    selection choices will persist between your user sessions and apply to other
-   users of the same Archivematica pipeline.
+   users of the same Archivematica instance.
 
    .. figure:: images/backlog-all-columns.*
       :align: center
