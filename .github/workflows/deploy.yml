@@ -1,0 +1,22 @@
+name: Update docs public site
+on:
+  push:
+    branches:
+      - 1.1[0-9]            # 1.10, 1.11, ... 1.19
+      - dev/github-actions
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ssh to docs site and execute action
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          proxy_host: ${{ secrets.PROXY_HOST }}
+          proxy_username: ${{ secrets.PROXY_USERNAME }}
+          proxy_key: ${{ secrets.PROXY_KEY }}
+          proxy_passphrase: ${{ secrets.PROXY_PASSPHRASE }}
+          script: "bash -c whoami; hostname; uptime"
