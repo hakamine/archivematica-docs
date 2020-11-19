@@ -1,9 +1,5 @@
-name: build sphinx docs
-on:
-  push:
-    branches:
-      - 1.1[0-9]            # 1.10, 1.11, ... 1.19
-      - dev/*               # any dev/ branch
+name: Build sphinx docs
+on: push
 jobs:
   run_python:
     runs-on: ubuntu-latest

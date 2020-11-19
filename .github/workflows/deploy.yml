@@ -1,14 +1,15 @@
-name: Update docs public site
+name: Update website docs
 on:
-  push:
+  workflow_run:
+    workflows: 
+      - "Build sphinx docs"
     branches:
       - 1.1[0-9]            # 1.10, 1.11, ... 1.19
-      - dev/github-actions
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: ssh to docs site and execute action
+      - name: ssh to website and update docs/site
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -19,4 +20,7 @@ jobs:
           proxy_username: ${{ secrets.PROXY_USERNAME }}
           proxy_key: ${{ secrets.PROXY_KEY }}
           proxy_passphrase: ${{ secrets.PROXY_PASSPHRASE }}
-          script: "bash -c whoami; hostname; uptime"
+          script: |
+            whoami; date
+            sleep 30
+            hostname; date
