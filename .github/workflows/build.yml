@@ -1,0 +1,19 @@
+name: build sphinx docs
+on:
+  push:
+    branches:
+      - 1.1[0-9]            # 1.10, 1.11, ... 1.19
+      - dev/*               # any dev/ branch
+jobs:
+  run_python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '2.7'
+          architecture: 'x64'
+      - name: Install requirements
+        run: "pip install -r requirements.txt"
+      - name: Run sphinx-build
+        run: "sphinx-build -n -W --keep-going -b html -d _build/doctrees . _build/html"
